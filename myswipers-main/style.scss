@@ -16,14 +16,13 @@ img{
 }
 
 *{box-sizing: border-box;}
-
+// ここまでデフォルト（初期化）
 
 
 .modeChange{
     display: flex;
     justify-content: flex-end;
     padding-right: 8%;
-    margin-bottom: 2em;
 
     & button{
         display: block;
@@ -67,6 +66,7 @@ img{
 }
 // 打消し及び加工
 
+
 .imgBoxes{
     overflow: hidden;
     width: clamp(320px, 100%, 960px);
@@ -105,24 +105,20 @@ img{
     }
 }
 
+
 .swiper-slide{
     padding: 16px;
 
     .swiperImges{
         & span{
             display: block;
-            width: clamp(320px, calc(100vw/2), 640px);
-            margin: auto;
             color: #fff;
             padding-top: .25em;
         }
-
-        & p{
-            width: clamp(320px, calc(100vw/2), 640px);
-            margin: auto;
-        }
     }
 }
+
+
 
 .forBase{
     position: relative;
@@ -183,7 +179,6 @@ img{
         visibility: visible;
         opacity: 1;
         overflow-y: auto;
-        overscroll-behavior: contain;
 
         & .action{
             display: block;

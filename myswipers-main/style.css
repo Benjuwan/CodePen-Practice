@@ -22,7 +22,6 @@ img {
   display: flex;
   justify-content: flex-end;
   padding-right: 8%;
-  margin-bottom: 2em;
 }
 .modeChange button {
   display: block;
@@ -98,14 +97,8 @@ img {
 }
 .swiper-slide .swiperImges span {
   display: block;
-  width: clamp(320px, 50vw, 640px);
-  margin: auto;
   color: #fff;
   padding-top: 0.25em;
-}
-.swiper-slide .swiperImges p {
-  width: clamp(320px, 50vw, 640px);
-  margin: auto;
 }
 
 .forBase {
@@ -162,7 +155,6 @@ img {
   visibility: visible;
   opacity: 1;
   overflow-y: auto;
-  overscroll-behavior: contain;
 }
 .forBase.goView .action {
   display: block;
@@ -201,6 +193,7 @@ img {
   .imgBoxes p {
     height: 240px;
   }
+
   .forBase {
     padding: 0 12.5vw;
   }
@@ -213,6 +206,7 @@ img {
     max-width: 18%;
     height: 140px;
   }
+
   .forBase .action {
     width: 25vw;
   }

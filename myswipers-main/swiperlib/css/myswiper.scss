@@ -1,29 +1,28 @@
-// darkMode
-.getDark{
-    & .SwiperWrapper{
-        &::before{
-            background-color: #82ade9;
-        }
-    }
-
-    & .AnimateSliderWrapper{
-        background: repeating-linear-gradient(45deg,#aac4e9,#aac4e9 4px,#c6d3e9 4px,#c6d3e9 8px);
-    }
+html{
+    font-size: 62.5%;
 }
 
-.zIndex{
-    z-index: -1;
+body{
+    font-family: Roboto, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+*{box-sizing: border-box;}
 
 .AnimateSliderWrapper{
     overflow: hidden;
     padding: 16px 0px;
     background: repeating-linear-gradient(-45deg,#eee4d2,#eee4d2 4px,#eed7d2 4px,#eed7d2 8px);
-    position: relative;
-    margin: 8em auto;
 
     & .ASWChildren{
         display: flex;
+        // flex-flow: row wrap; 
         animation: AnimateSlider 300s infinite linear;
 
         & p{
