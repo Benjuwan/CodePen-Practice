@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MySwipers</title>
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- swiper -->
+    <!-- thumbnails -->
+    <script src="js/slider.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- AnimateSlider & SwiperWrapper -->
+    <link rel="stylesheet" href="css/libs/myswiper.css">
+    <script src="js/libs/main.js"></script>
+    <script src="js/libs/myswiper.js"></script>
+    <script src="js/numberGuess.js"></script>
+</head>
+
+<body ontouchstart="">
+    <div class="modeChange"><button>&nbsp;</button></div>
+
+    <div class="numberGuess" style="margin: 2.5em auto;width: clamp(360px, calc(100vw/1.6),960px);">
+        <p class="ary"></p>
+        <p class="txt"></p>
+        <input type="text">
+        <button type="button">入力</button>
+    </div>
+
+    <!-- thumbnails -->
+    <div class="thumbnails">
+        <!-- ここ以下、swiperへ格納する画像群 -->
+        <div class="imgBoxes">
+            <p><img src="images/image-1.jpg" alt="001"><span>Lorem ipsum dolor</span></p>
+            <p><img src="images/image-2.jpg" alt="002"><span>sit amet, consectetur adipiscing elit,</span></p>
+            <p><img src="images/image-3.jpg" alt="003"><span>sed do eiusmod tempor incididunt ut</span></p>
+            <p><img src="images/villa-1.jpg" alt="004"><span>labore et dolore magna aliqua.</span></p>
+            <p><img src="images/villa-2.jpg" alt="005"><span>Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco</span></p>
+            <p><img src="images/villa-3.jpg" alt="006"><span>laboris nisi ut aliquip ex ea commodo consequat.</span></p>
+            <p><img src="images/villa-4.jpg" alt="007"><span>Duis aute irure dolor </span></p>
+            <p><img src="images/villa-5.jpg" alt="008"><span>dolore eu fugiat nulla pariatur.</span></p>
+            <p><img src="images/villa-6.jpg" alt="009"><span>Excepteur sint occaecat</span></p>
+            <p><img src="images/image-travel.jpg" alt="010"><span>in reprehenderit in</span></p>
+            <p><img src="images/image-p1.jpg" alt="011"><span>voluptate velit esse cillum</span></p>
+            <p><img src="images/image-p2.jpg" alt="012"><span>cupidatat non proident</span></p>
+            <p><img src="images/image-p3.jpg" alt="013"><span>sunt in culpa qui officia</span></p>
+            <p><img src="images/image-p4.jpg" alt="014"><span>deserunt mollit anim id est laborum.</span></p>
+        </div>
+        <!-- ここ以上、swiperへ格納する画像群 -->
+        <div class="forBase">
+            <button>&nbsp;</button>
+            <!-- ここ以下、html要素を増やすと機能しない -->
+            <div class="swiper">
+                <div class="swiper-wrapper" id="forView-SwiperWrapper">
+                    <!-- jsでスライダー要素を生成 -->
+                </div>
+            </div>
+            <!-- ここ以上、html要素を増やすと機能しない -->
+        </div>
+    </div>
+    <!-- thumbnails -->
+
+
+
+    <!-- AnimateSlider(not use Swiper) -->
+    <div class="AnimateSliderWrapper">
+        <div class="ASWChildren">
+            <p><a href="" target="_blank"><img src="images/villa-1.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/villa-2.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/villa-3.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/villa-4.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/villa-5.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/villa-6.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/image-p1.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/image-p2.jpg" alt=""></a></p>
+            <!-- 複製 -->
+            <p><a href="" target="_blank"><img src="images/villa-1.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/villa-2.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/villa-3.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/villa-4.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/villa-5.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/villa-6.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/image-p1.jpg" alt=""></a></p>
+            <p><a href="" target="_blank"><img src="images/image-p2.jpg" alt=""></a></p>
+            <!-- 複製 -->
+        </div>
+    </div>
+    <!-- AnimateSlider(not use Swiper) -->
+
+
+
+    <!-- SwiperWrapper -->
+    <div class="SwiperWrapper">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/villa-1.jpg" alt="">
+                    <div>slide first view</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-2.jpg" alt="">
+                    <div>second slide view</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-3.jpg" alt="">
+                    <div>third slide inview</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-4.jpg" alt="">
+                    <div>forth slide getting</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-5.jpg" alt="">
+                    <div>fifth slide comes</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-6.jpg" alt="">
+                    <div>six slide lastview</div>
+                </div>
+                <!-- 複製用 -->
+                <div class="swiper-slide">
+                    <img src="images/villa-1.jpg" alt="">
+                    <div>slide first view</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-2.jpg" alt="">
+                    <div>second slide view</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-3.jpg" alt="">
+                    <div>third slide inview</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-4.jpg" alt="">
+                    <div>forth slide getting</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-5.jpg" alt="">
+                    <div>fifth slide comes</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-6.jpg" alt="">
+                    <div>six slide lastview</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-1.jpg" alt="">
+                    <div>slide first view</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-2.jpg" alt="">
+                    <div>second slide view</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-3.jpg" alt="">
+                    <div>third slide inview</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-4.jpg" alt="">
+                    <div>forth slide getting</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-5.jpg" alt="">
+                    <div>fifth slide comes</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/villa-6.jpg" alt="">
+                    <div>six slide lastview</div>
+                </div>
+                <!-- 複製用 -->
+            </div>
+        </div>
+    </div>
+    <!-- SwiperWrapper -->
+</body>
+
+</html>

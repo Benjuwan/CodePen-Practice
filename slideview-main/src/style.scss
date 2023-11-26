@@ -1,0 +1,71 @@
+.globalChildren{
+  width: clamp(80px, 100%, 800px);
+  margin: 0 auto calc(100vh/2);
+  display: flex;
+  flex-flow: row wrap;
+  
+  & .viewContent{
+    overflow: hidden;
+    position: relative;
+    
+    & img{
+      width: 100%;
+      height: auto;
+      vertical-align: bottom;
+    }
+    
+    & p{
+      transform-origin: left;
+      margin: 0;
+      opacity: 0;
+    }
+    &::before{
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-100%, -50%);
+      width: 100%;
+      height: 100%;
+      background-color: #eee;
+      opacity: 0;
+      z-index: 1;
+   }
+    
+   &.onView{
+      & p{
+        animation: onViewEl linear 1s forwards;
+        animation-delay: .25s;
+        @keyframes onViewEl {
+          0%, 50%{opacity:0; transform:scale(1.05);}
+          50.1%{opacity:1; transform:scale(1.05);}
+          100%{opacity:1; transform:scale(1);}
+        }
+      }
+     
+      &::before{
+        animation: onViewBeforeEl linear 1.25s forwards;
+        @keyframes onViewBeforeEl {
+          0%, 50%{transform: translate(-100%, -50%);opacity: 0;}
+          50.1%{transform: translate(-100%, -50%);opacity: 1;}
+          100%{transform: translate(100%, -50%);opacity: 1;}
+        }
+      }
+   }
+   
+   &:not(:last-of-type){
+     margin-bottom: 2%;
+   }
+  }
+}
+
+@media screen and (min-width: 600px){
+  .globalChildren{
+  gap: 2%;
+  justify-content: space-between;
+  
+  & .viewContent{
+    width: 49%;
+  }
+}
+}

@@ -1,0 +1,65 @@
+.menu {
+  list-style: none;
+  padding: 0;
+  background-color: #dadada;
+  border-radius: 8px;
+  display: flex;
+  gap: 2%;
+
+  & li {
+    cursor: pointer;
+    padding: .5em 1em;
+    position: relative;
+    z-index: 1;
+
+    &[data-current] {
+      color: #fff;
+
+      &::before {
+        background-color: #333;
+        /* data-current が付いているものはスタイルを正す */
+        transform: scaleY(1) translateX(0%);
+      }
+    }
+
+    &::before {
+      display: block;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      position: absolute;
+      z-index: -1;
+      margin: auto;
+      /* margin: auto;は、margin-left;とmargin-right;の両方がauto;の場合、適用される値は等しくなり、要素を含むブロックの端を基準にして要素を水平方向の中央に配置 */
+      inset: 0;
+      /* top, right, bottom, left の各プロパティに対応する省略形（すべての辺に適用される値を0）*/
+      /* 縮小 → 拡大を実現するため scaleY(.75) で縦を縮めておく */
+      transform: scaleY(.75) translateX(0%);
+    }
+
+    &.prev {
+      &::before {
+        /*           background-color: red; */
+        left: 50%;
+        /* 縮小 → 拡大を実現するため scaleY(1) */
+        transform: scaleY(1) translateX(-50%);
+        /* left（位置スタートからの）基準なので、右側に進んで左側に戻す */
+        transition: transform .25s;
+      }
+    }
+
+    &.next {
+      &::before {
+        /*           background-color: blue; */
+        left: auto;
+        /* inset: 0; で left: 0; なので auto 指定 */
+        right: 50%;
+        /* 縮小 → 拡大を実現するため scaleY(1) */
+        transform: scaleY(1) translateX(50%);
+        /* right（位置スタートからの）基準なので、左側に進んで右側に戻す */
+        transition: transform .25s;
+      }
+    }
+  }
+}
