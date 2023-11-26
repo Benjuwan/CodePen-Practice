@@ -1,0 +1,85 @@
+.TabWrapper{
+    width: clamp(320px, 100%, 640px);
+    margin: 56px auto;
+    line-height: 1.8;
+    font-size: 14px;
+
+  & .TabBtnBox{
+        display: flex;
+        overflow-x: scroll;
+
+        & button{
+            background-color: transparent;
+            border: none;
+            border-radius: 0;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            line-height: 2;
+            font-size: 14px;
+            background-color: #ffe3e3;
+            cursor: pointer;
+            flex: 1; // flexbox内で各アイテムが width:100%;
+            order: -1; // （htmlの記述順に各アイテムそれぞれ）先頭配置
+
+            &:nth-of-type(2){
+                background-color: #f1ffe3;
+            }
+            &:nth-of-type(3){
+                background-color: #e3f8ff;
+            }
+            &:nth-of-type(4){
+                background-color: #fffce3;
+            }
+            &:nth-of-type(5){
+                background-color: #ff9479;
+            }
+            &:nth-of-type(6){
+                background-color: #b8ff79;
+            }
+
+            &:hover{
+                color: #c532ff;
+            }
+        }
+    }
+
+    & .TabContent{
+        & div{
+            padding: 0; // 不要なスペースを生まないために0を指定
+            border-radius: 0 0 8px 8px;
+            height: 0;
+            opacity: 0;
+            background-color: #ffe3e3;
+            pointer-events: none; // JSで表示したコンテンツのみをアクティブ状態にするため
+
+            &:nth-of-type(2){
+                background-color: #f1ffe3;
+            }
+            &:nth-of-type(3){
+                background-color: #e3f8ff;
+            }
+            &:nth-of-type(4){
+                background-color: #fffce3;
+            }
+            &:nth-of-type(5){
+                background-color: #ff9479;
+            }
+            &:nth-of-type(6){
+                background-color: #b8ff79;
+            }
+
+            &.TabBoxViewOn{
+                padding: 1em; // アクティブ状態の場合のみ余白を用意
+                pointer-events: visible; // JSで表示したコンテンツのみをアクティブ状態にするため
+                transition: height .25s, opacity .5s;
+                height: 100%;
+                opacity: 1;
+            }
+
+            & p{
+                margin: 0;
+                line-height: 1.8;
+            }
+        }
+    }
+}

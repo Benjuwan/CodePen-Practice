@@ -1,0 +1,75 @@
+.TabWrapper {
+  width: clamp(320px, 100%, 640px);
+  margin: 56px auto;
+  line-height: 1.8;
+  font-size: 14px;
+}
+.TabWrapper .TabBtnBox {
+  display: flex;
+  overflow-x: scroll;
+}
+.TabWrapper .TabBtnBox button {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+  line-height: 2;
+  font-size: 14px;
+  background-color: #ffe3e3;
+  cursor: pointer;
+  flex: 1;
+  order: -1;
+}
+.TabWrapper .TabBtnBox button:nth-of-type(2) {
+  background-color: #f1ffe3;
+}
+.TabWrapper .TabBtnBox button:nth-of-type(3) {
+  background-color: #e3f8ff;
+}
+.TabWrapper .TabBtnBox button:nth-of-type(4) {
+  background-color: #fffce3;
+}
+.TabWrapper .TabBtnBox button:nth-of-type(5) {
+  background-color: #ff9479;
+}
+.TabWrapper .TabBtnBox button:nth-of-type(6) {
+  background-color: #b8ff79;
+}
+.TabWrapper .TabBtnBox button:hover {
+  color: #c532ff;
+}
+.TabWrapper .TabContent div {
+  padding: 0;
+  border-radius: 0 0 8px 8px;
+  height: 0;
+  opacity: 0;
+  background-color: #ffe3e3;
+  pointer-events: none;
+}
+.TabWrapper .TabContent div:nth-of-type(2) {
+  background-color: #f1ffe3;
+}
+.TabWrapper .TabContent div:nth-of-type(3) {
+  background-color: #e3f8ff;
+}
+.TabWrapper .TabContent div:nth-of-type(4) {
+  background-color: #fffce3;
+}
+.TabWrapper .TabContent div:nth-of-type(5) {
+  background-color: #ff9479;
+}
+.TabWrapper .TabContent div:nth-of-type(6) {
+  background-color: #b8ff79;
+}
+.TabWrapper .TabContent div.TabBoxViewOn {
+  padding: 1em;
+  pointer-events: visible;
+  transition: height 0.25s, opacity 0.5s;
+  height: 100%;
+  opacity: 1;
+}
+.TabWrapper .TabContent div p {
+  margin: 0;
+  line-height: 1.8;
+}

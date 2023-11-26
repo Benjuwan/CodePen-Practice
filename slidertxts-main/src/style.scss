@@ -1,0 +1,94 @@
+#chgContent{
+  display: block;
+  border-radius: 0px;
+  border: 1px solid #333;
+  background-color: #eaeaea;
+  width: calc(100vw/4);
+  padding: .25em;
+}
+
+.infoTxtSlider{
+  overflow: hidden;
+  margin: .5em auto;
+
+    &.infoTxtSliderVerX{
+      width: clamp(80px, calc(100vw / 1.4), 240px);
+      background: linear-gradient(to right, rgba(255,255,255,0) 15%, #616161 65%, #3e3e3e);
+      & ul{
+        padding: 16px 0 8px;
+        & li{
+          transform: translateX(250px) translateY(-50%);
+          // JavaScriptの時限式関数と同じ時間をセットする
+          animation: txtSlider-X infinite 10s linear backwards;
+  
+          @keyframes txtSlider-X {
+              0%{transform: translateX(250px) translateY(-50%);}
+              100%{transform: translateX(-500px) translateY(-50%);}
+          }
+        }
+      }
+    }
+
+    &.infoTxtSliderVerY{
+      width: clamp(160px, 100%, 960px);
+      background-color: #3e3e3e;
+      & ul{
+        padding: 16px 0 8px 1em;
+        & li{
+          transform: translateY(-50%) translateX(0%);
+          // JavaScriptの時限式関数と同じ時間をセットする
+          animation: txtSlider-Y infinite 3s linear backwards;
+  
+          @keyframes txtSlider-Y {
+              0%{transform: translateY(0%) translateX(0%);}
+              1%{transform: translateY(-50%) translateX(0%);}
+              99%{transform: translateY(-50%) translateX(0%);}
+              100%{transform: translateY(-100%) translateX(0%);}
+          }
+        }
+      }
+    }
+
+    & ul{
+        color: #fff;
+        width: calc(100vw*1.1);
+        position: relative;
+
+        & li{
+          list-style: none;
+          font-size: 14px;
+          position: absolute;
+          top: 50%;
+
+          & a{
+            color: #fff;
+            text-decoration: none;
+            &:hover{
+              color: gold;
+            }
+          }
+        }
+    }
+}
+
+@media screen and (min-width:1025px) {
+    .infoTxtSlider{
+      &.infoTxtSliderVerX{
+        width: clamp(80px, calc(100vw / 2), 720px);
+        & ul{
+          & li{
+            @keyframes txtSlider-X {
+                0%{transform: translateX(1000px) translateY(-50%);}
+                100%{transform: translateX(-500px) translateY(-50%);}
+            }
+          }
+        }
+      }
+      
+      & ul {
+        & li{
+          font-size: 16px;
+        }
+      }
+    }
+}

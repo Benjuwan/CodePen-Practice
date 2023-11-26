@@ -1,0 +1,14 @@
+body{
+  margin: 0;
+}
+section{
+  height: 100vh;
+  background-color: #fff6d0;
+  display: grid;
+  place-items: center;
+  
+  & p{
+    font-size: clamp(14px, calc(100vw/32), 56px);
+    text-align: center;
+  }
+}
