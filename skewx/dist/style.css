@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+.content {
+  overflow: hidden;
+  
+  & .children {
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    height: 500px;
+    background-color: orange;
+    padding: 1em;
+    position: relative;
+    z-index: 1;
+    
+    & .details {
+      positon: relative;
+      z-index: 2;
+      padding: 1em;
+    }
+    
+    & .info {
+      padding: 1em;
+    }
+    
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: darkblue;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(-50%, -50%) skewX(-25deg);
+        z-index: -1;
+      }
+    
+    &:nth-of-type(odd){
+      background: url('https://source.unsplash.com/collection/1346951/1000x500?sig=1')no-repeat right /cover;
+    }
+    
+    &:nth-of-type(even) {
+      margin-top: 1em;
+      background-color: yellow;
+      justify-content: flex-start;
+        
+        &::before {
+          left: auto;
+          right: 0%;
+        transform: translate(-50%, -50%) skewX(-25deg);
+          background: url('https://source.unsplash.com/random')no-repeat left /cover;
+        }
+    }
+  }
+}
