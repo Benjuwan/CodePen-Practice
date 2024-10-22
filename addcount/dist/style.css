@@ -1,0 +1,18 @@
+main {
+    padding: 2.5em;
+
+    & button {
+        appearance: none;
+        border: none;
+        background-color: #333;
+        cursor: pointer;
+        color: #fff;
+        border-radius: 4px;
+        padding: .25em 1em;
+
+        &:hover {
+            opacity: .5;
+        }
+    }
+}
+}
