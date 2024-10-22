@@ -34,11 +34,11 @@ const _createEntry = () => {
 const _commonAction_Dragover_Drop = (e, targetElm, isDropAct) => {
     // targetElm が li かどうかをチェック
     if (targetElm.tagName === 'LI') {
-        const rect = targetElm.getBoundingClientRect(); // targetElm を長方形にした想定でビューポート内の位置（width, height, top, left, bottom, right, x, y, etc...）を把握する
+        const rect = targetElm.getBoundingClientRect(); // targetElm（DOM要素）を長方形にした想定でビューポート内の位置（width, height, top, left, bottom, right, x, y, etc...）・座標を把握する
 
         /* middle：要素の垂直方向の中心点（childMiddle）を計算（=要素のviewportHeight（y）からの数値（top）と、要素自体の高さを半分にした数値の合算。この中心点を基準にすることで要素の上半分にドラッグした場合は「その要素の前に」配置、下半分にドラッグした場合は「その要素の後に」配置するという処理を実現） */
         const middle = rect.top + rect.height / 2; // 要素の垂直方向の中心点
-        const posY = e.clientY; // イベントハンドラー要素のビューポートにおけるY軸の数値
+        const posY = e.clientY; // e（マウスカーソル／ポインター）要素のビューポートにおけるY軸の数値（座標）
 
         if (posY < middle) {
             // マウスポインターの位置（posY）が要素の中心線（middle）より「上（半分）」にある場合、ドラッグ要素はターゲット要素（draggedElm）の前に配置
