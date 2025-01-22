@@ -1,0 +1,17 @@
+.snsShareBtn{
+  display: none;
+  position: fixed; /* レイアウトシフト対策 */
+  transform: translate(0px, 0px);
+  
+  &.snsShareBtn_view {
+    display: block;
+  }
+  
+  & a {
+    display: block;
+    width: fit-content;
+    color: #fff;
+    background-color: #333;
+    padding: .5em 1em;
+  }
+}
