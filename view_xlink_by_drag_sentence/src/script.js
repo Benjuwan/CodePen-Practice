@@ -5,13 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // シェア可能を示唆する要素（ボタン）
     const snsShareBtn = document.querySelector(".snsShareBtn");
 
-    // ビューポート幅が768px以下の端末を検出
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    // ホバー機能がなく、タッチスクリーンのような粗い入力精度の端末を検出
-    const isTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-    // スマホ・タブレット判定用のフラグ
-    const isMobileDevice = isTouch && isMobile;
-
     selectableTextArea.forEach((elem) => {
         // 各文章（イベント発生対象要素内のpタグ）のマウスアップ時に「座標取得」
         elem.addEventListener("mouseup", selectableTextAreaMouseUp);
@@ -65,10 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const selectedText = window.getSelection().toString().trim();
 
             if (selectedText.length > 0) {
+                // スマホ・タブレットかどうかを判定するフラグ
+                const isTouchDevice = event instanceof TouchEvent;
+
                 // 各文章（イベント発生対象要素内のpタグ）内のドラッグ位置に対する x座標
-                const xPos = !isMobileDevice ? event.clientX : event.changedTouches[0].clientX;
+                const xPos = !isTouchDevice ? event.clientX : event.changedTouches[0].clientX;
                 // 各文章（イベント発生対象要素内のpタグ）内のドラッグ位置に対する y座標
-                const yPos = !isMobileDevice ? event.clientY : event.changedTouches[0].clientY;
+                const yPos = !isTouchDevice ? event.clientY : event.changedTouches[0].clientY;
 
                 // アクティブな要素（ドラッグ対象）がシェアボタンではない場合
                 if (document.activeElement !== snsShareBtn) {
