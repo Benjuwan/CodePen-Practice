@@ -1,22 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // イベント発生対象の指定（article内の各文章 div）
+    /**
+     * イベント発生対象の指定（article内の各文章 div）
+     * @type {NodeListOf<HTMLElement>}
+     */
     const selectableTextArea = document.querySelectorAll("article div");
 
-    // ツールチップ（ボタン）
+    /**
+     * ツールチップ（ボタン）
+     * @type {HTMLButtonElement}
+     */
     const tooltipBtn = document.querySelector(".tooltipBtn");
 
-    selectableTextArea.forEach((elem) => {
-        // 各文章（イベント発生対象要素内のpタグ）のマウスアップ時に「座標取得」
-        elem.addEventListener("mouseup", selectableTextAreaMouseUp);
-        // タッチイベント
-        elem.addEventListener("touchend", selectableTextAreaMouseUp);
-    });
+    /**
+     * スマホ・タブレットかどうかを判定するフラグ
+     * @param {Event} event 
+     * @returns {event is TouchEvent}
+     */
+    const isTouchDevice = (event) => {
+        return event instanceof TouchEvent;
+    }
 
-    // ドキュメント要素（DOM全体を対象に）のマウスダウン時に「ツールチップを非表示化」
-    document.addEventListener("mousedown", documentMouseDown);
-    document.addEventListener("touchstart", documentMouseDown);
-
-    // Google検索機能実行準備
+    /**
+     * Google検索機能実行準備
+     * @param {string} selectedText 
+     */
     function createGoogleSearchPathStr(selectedText) {
         const snsShare = tooltipBtn.querySelector('a');
         if (selectedText.length > 0) {
@@ -26,7 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 座標取得
+    /**
+     * 座標取得
+     * @param {Event} event 
+     */
     function selectableTextAreaMouseUp(event) {
         // 擬似的な遅延処理で高速ダブルクリックに対応
         setTimeout(() => {
@@ -35,13 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const selectedText = window.getSelection().toString().trim();
 
             if (selectedText.length > 0) {
-                // スマホ・タブレットかどうかを判定するフラグ
-                const isTouchDevice = event instanceof TouchEvent;
+
 
                 // 各文章（イベント発生対象要素内のpタグ）内のドラッグ位置に対する x座標
-                const xPos = !isTouchDevice ? event.clientX : event.changedTouches[0].clientX;
+                const xPos = !isTouchDevice(event) ? event.clientX : event.changedTouches[0].clientX;
                 // 各文章（イベント発生対象要素内のpタグ）内のドラッグ位置に対する y座標
-                const yPos = !isTouchDevice ? event.clientY : event.changedTouches[0].clientY;
+                const yPos = !isTouchDevice(event) ? event.clientY : event.changedTouches[0].clientY;
 
                 // アクティブな要素（ドラッグ対象）がツールチップではない場合
                 if (document.activeElement !== tooltipBtn) {
@@ -54,13 +63,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 500);
     }
 
-    // ツールチップを非表示化
-    function documentMouseDown() {
+    /**
+     * ツールチップを非表示化
+     * @param {Event} event 
+     */
+    function documentMouseDown(event) {
         //  ツールチップが表示中の場合、表示用クラスの解除とドラッグ箇所（文章・単語）を空（初期化・リセット）に
         if (tooltipBtn.classList.contains('tooltipBtn_view')) {
             window.getSelection().empty();
             // 処理実行を実現するために非表示化を擬似的に遅延させている
-            if (!isMobileDevice) {
+            if (!isTouchDevice(event)) {
                 setTimeout(() => tooltipBtn.classList.remove('tooltipBtn_view'), 250);
             } else {
                 // スマホ・タブレット操作時は更に遅延
@@ -68,4 +80,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     }
+
+    selectableTextArea.forEach((elem) => {
+        // 各文章（イベント発生対象要素内のpタグ）のマウスアップ時に「座標取得」
+        elem.addEventListener("mouseup", selectableTextAreaMouseUp);
+        // タッチイベント
+        elem.addEventListener("touchend", selectableTextAreaMouseUp);
+    });
+
+    // ドキュメント要素（DOM全体を対象に）のマウスダウン時に「ツールチップを非表示化」
+    document.addEventListener("mousedown", documentMouseDown);
+    document.addEventListener("touchstart", documentMouseDown);
 });
